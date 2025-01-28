@@ -59,14 +59,13 @@ total_sale isnull;
  or
  total_sale isnull;
 
-```
 
 --Data Exploration
 --how many sales we have ?
 
 select count(total_sale) as total_sale from retail_sales;
 
--- how many unique customers we have ?
+--how many unique customers we have ?
 
 select count(DISTINCT customer_id) as "Number of Customers" from retail_sales;
 
@@ -74,7 +73,7 @@ select count(DISTINCT customer_id) as "Number of Customers" from retail_sales;
 
 select count(DISTINCT category) as "number of categories" from retail_sales;
 
--- what are the categories we have ?
+--what are the categories we have ?
 
 select DISTINCT category from retail_sales;
 
