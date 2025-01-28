@@ -61,25 +61,31 @@ total_sale isnull;
 
 ```
 
-- --Data Exploration
+--Data Exploration
 --how many sales we have ?
+
 select count(total_sale) as total_sale from retail_sales;
 
 -- how many unique customers we have ?
+
 select count(DISTINCT customer_id) as "Number of Customers" from retail_sales;
 
 --how many categories we have ?
+
 select count(DISTINCT category) as "number of categories" from retail_sales;
 
 -- what are the categories we have ?
+
 select DISTINCT category from retail_sales;
 
 --Data Analysis & Business key Problems & Answers
 
 --Q1. write a sql query to retrive all columns for sales made on '2022-11-05'
+
 select * from retail_sales where sale_date = '2022-11-05'
 
 --Q2. write a sql query to retrive all transactions where the category is 'clothing'and the quantity sold is more than 10 in the month of nov-2022
+	
 select * from retail_sales
 where
 category = 'Clothing'
@@ -102,6 +108,7 @@ select * from retail_sales where total_sale > 1000 order by sale_date
 select gender, category, count(transactions_id) as total_transactions from retail_sales group by category , gender
 
 --Q7. write a sql query to calculate the average sale for each month. find out best selling month in each year.
+	
 select year, month, avg_sale from
 (
 select
@@ -120,6 +127,7 @@ select customer_id, sum(total_sale) as total_sale from retail_sales group by 1 o
 select category, count(distinct customer_id ) as unique_customers from retail_sales group by 1
 
 --Q10. write a sql query to create each shift and number of orders (Example Morning <= 12. Afternoon between 12 & 17, Evening > 17)
+	
 WITH hourly_sale
 AS
 (
